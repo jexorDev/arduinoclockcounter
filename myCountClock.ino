@@ -16,6 +16,8 @@ RTCDateTime dt;
 #define COM1 2
 #define TIME 2
 
+const long fromDateInUnix = 1737525600;
+
 const static uint8_t num_buf[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
 
 void setup()
@@ -59,9 +61,14 @@ void loop()
   Serial.print(dt.hour);   Serial.print(":");
   Serial.print(dt.minute); Serial.print(":");
   Serial.print(dt.second); Serial.println("");
-  //string currentTime = dt.hour
-  display_num(dt.minute);
-  delay(1000);
+    
+  display_num(getDaysElapsed(dt.unixtime));
+  //delay(1000);
+}
+
+int getDaysElapsed(long currentUnixTimestamp) {
+  long difference = currentUnixTimestamp - fromDateInUnix;
+  return difference / 60 / 60 / 24;
 }
 
 void display_num(uint16_t num)
