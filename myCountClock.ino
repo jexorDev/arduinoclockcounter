@@ -16,7 +16,7 @@ RTCDateTime dt;
 #define COM1 2
 #define TIME 2
 
-const long fromDateInUnix = 1737525600;
+const long fromDateInUnix = 1737547200;
 
 const static uint8_t num_buf[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
 
@@ -54,13 +54,14 @@ void loop()
 
   // For leading zero look to DS3231_dateformat example
 
-  Serial.print("Raw data: ");
-  Serial.print(dt.year);   Serial.print("-");
-  Serial.print(dt.month);  Serial.print("-");
-  Serial.print(dt.day);    Serial.print(" ");
-  Serial.print(dt.hour);   Serial.print(":");
-  Serial.print(dt.minute); Serial.print(":");
-  Serial.print(dt.second); Serial.println("");
+  //Serial.print("Raw data: ");
+  //Serial.print(dt.year);   Serial.print("-");
+  //Serial.print(dt.month);  Serial.print("-");
+  //Serial.print(dt.day);    Serial.print(" ");
+  //Serial.print(dt.hour);   Serial.print(":");
+  //Serial.print(dt.minute); Serial.print(":");
+  //Serial.print(dt.second); Serial.println("");
+  //Serial.print(dt.unixtime); Serial.println(""); Serial.println("\n");
     
   display_num(getDaysElapsed(dt.unixtime));
   //delay(1000);
